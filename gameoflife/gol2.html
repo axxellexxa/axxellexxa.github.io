@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game of Life 2</title>
+	<link rel="stylesheet" href="css/gol2.css">
+	<link rel="icon" type="image/svg+xml" href="img/icon.svg">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+</head>
+<body>
+	<div id="sideNav">
+			<div id="fieldParam">
+				<label class="fieldLabel">Rows</label>
+				<input type="number" id="row" class="fieldInput" value="10" placeholder="Rows">
+				<label class="fieldLabel">Columns</label>
+				<input type="number" id="col" class="fieldInput" value="10" placeholder="Columns">
+				<button onclick="createField()">Create Field</button>
+			</div>
+			<div id="fieldParam">
+				<label class="fieldLabel">Percent Full</label>
+				<input type="number" id="percent" class="fieldInput" value="50" min="0" max="100" placeholder="Percent Full">
+				<button onclick="randomFill()">Randomize</button>
+			</div>
+			<button onclick="step()">Step</button>
+	</div>
+	<div id="content">
+		<h1>John Conway's Game of Life</h1>
+		<div id="field">
+
+		</div>
+		<br/>
+		<div id="fieldParam">
+			<h1>To-do</h1>
+			<p>✔Randomizer</p>
+			<p>✔Fix rounded cornerse in small fields</p>
+			<p>✔/2 Side bar</p>
+			<p>✔/2 Focus outlines</p>
+			<p>Animate</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/gol2.js"></script>
+</body>
+</html>
