@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "Helvetica";
+    src: url("fonts/Helvetica.ttf");
+}
+@font-face {
+    font-family: "Helvetica Bold";
+    src: url("fonts/Helvetica\ NeueLTW0693BlkExtObl.ttf");
+}
+
+:root {
+    --albumSize: 300px;
+}
+
+* {
+    font-family: "Helvetica";
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+}
+
+#header-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 98%;
+    padding: 1%;
+    background-color: #e9e8e4;
+}
+
+li {
+    margin: auto;
+    width: 100px;
+    text-align: center;
+}
+li:first-child {
+    font-size: 40px;
+    margin-left: 5%;
+    width: 50%;
+    text-align: left;
+    font-family: "Helvetica Bold";
+}
+li:last-child {
+    margin-right: 5%;
+}
+
+.item {
+    cursor: pointer;
+}
+
+#album-list{
+    display: grid;
+    grid-template-columns: auto auto;
+    flex-direction: column;
+    perspective: 2000px;
+}
+
+.album-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: min-content;
+    margin-bottom: 5%;
+    perspective: 2000px;
+}
+
+.cover {
+    transition: 1s cubic-bezier(.66,0,.33,1);
+    width: var(--albumSize);
+    height: var(--albumSize);
+    z-index: 2;
+    position: relative;
+    top: 0px;
+    margin: 0;
+    background-size: contain;
+    perspective: 2000px;
+    perspective-origin: center;
+}
+
+.album-container:hover > .cover {
+    transform: scale(110%);
+}
+
+.item:nth-child(1) .cover {
+    background-image: url("images/moonstoneblue_cover.png");
+}
+.item:nth-child(2) .cover {
+    background-image: url("images/jadegreen_cover.png");
+}
+.item:nth-child(3) .cover {
+    background-image: url("images/bloodmoon_cover.png");
+}
+.item:nth-child(4) .cover {
+    background-image: url("images/mahogany_cover.png");
+}
+
+.disc {
+    transition: transform 1s cubic-bezier(.66,0,.33,1), border-radius 0s cubic-bezier(.66,0,.33,1);
+    width: var(--albumSize);
+    height: var(--albumSize);
+    position: absolute;
+    top: 0px;
+    transform: rotate(-45deg);
+    background-size: contain;
+    border-radius: 50%;
+    z-index: 1;
+    perspective: 2000px;
+    perspective-origin: center;
+}
+
+.album-container:hover > .disc {
+    transform: scale(110%) translate(50%) rotate(45deg);
+}
+
+.item:nth-child(1) .disc {
+    background-image: url("images/moonstoneblue.png");
+}
+.item:nth-child(2) .disc {
+    background-image: url("images/jadegreen.png");
+}
+.item:nth-child(3) .disc {
+    background-image: url("images/bloodmoon.png");
+}
+.item:nth-child(4) .disc {
+    background-image: url("images/mahogany.png");
+}
+
+.back {
+    transition: transform 1s cubic-bezier(.66,0,.33,1), z-index 1s cubic-bezier(.66,0,.33,1);
+    width: var(--albumSize);
+    height: var(--albumSize);
+    z-index: 0;
+    background-size: contain;
+    transform: rotateY(-180deg);
+    position: absolute;
+    top: 0;
+    perspective: 2000px;
+    perspective-origin: center;
+}
+.album-container:hover > .back {
+    transform: scale(110%) rotateY(-180deg);
+}
+
+.item:nth-child(1) .back {
+    background-image: url("images/moonstoneblue_back.png");
+}
+.item:nth-child(2) .back {
+    background-image: url("images/jadegreen_back.png");
+}
+.item:nth-child(3) .back {
+    background-image: url("images/bloodmoon_back.png");
+}
+.item:nth-child(4) .back {
+    background-image: url("images/mahogany_back.png");
+}
+
+
+button {
+    width: 200px;
+    height: 50px;
+    align-self: center;
+    border-width: 0;
+    border-radius: 25px;
+    background-color: #e9e8e4;
+    font-size: larger;
+}
+
+.flipright {
+    transition: 1s cubic-bezier(.66,0,.33,1);
+    transform: translate(0);
+}
+.flipright:focus, .right {
+    transform: translate(calc(100%)) rotateY(180deg);
+}
+.flipright:focus > .back, .right > .back {
+    z-index: 3;
+}
+
+.flipleft {
+    transition: 1s cubic-bezier(.66,0,.33,1);
+    transform: translate(calc(100%)) rotateY(180deg);
+}
+.flipleft:focus, .left {
+    transform: translate(0) rotateY(0deg);
+}
+.flipleft:focus > .back, .left > .back {
+    z-index: 0;
+}
