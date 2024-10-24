@@ -23,10 +23,10 @@ main {
     height: 90vh;
 }
 
-a::selection {
+a {
     color: #c95a00;
 }
-a:visited::selection {
+a:visited {
     color: #986800;
 }
 
@@ -82,16 +82,19 @@ li, button {
     transform-origin: left;
     margin: 0;
     padding: 1em;
-    height: fit-content;
+    height: 1.5em;
     background-color: #fdf6e3;
     box-shadow: 4px 5px 4px 0px #c95a0055;
     border-bottom: dotted #c95a00;
     cursor: pointer;
 }
 li {
+    display: flex;
+    align-items: center;
+    position: relative;
     top: 0;
     left: 0;
-    transition: top 2s cubic-bezier(1,-0.31,.63,1.19), transform 0.5s, background-color 1s, left 0.5s;
+    transition: top 2s cubic-bezier(1,-0.31,.63,1.19), transform 0.5s, background-color 1s, left 0.5s, border 0.5s;
 }
 li.clicked {
     background-color: #986800;
@@ -99,6 +102,20 @@ li.clicked {
     position: relative;
     top: 100vh;
     left: 20px;
+}
+li.clicked a {
+    color: #eee8d5;
+}
+li::before {
+    position: relative;
+    transition: color 1s, font-size 1s;
+    content: "⭑";
+    color: #f5c45c;
+    font-size: 1em;
+}
+li:hover::before {
+    font-size: 2em;
+    color: #c95a00;
 }
 
 a {
@@ -118,12 +135,15 @@ button {
     width: 50%;
     height: 100%;
     border: none;
-    transition: top 2s cubic-bezier(1,-1.07,0,1.63), transform 0.5s, background-color 1s;
+    transition: top 2s cubic-bezier(1,-1.07,0,1.63), transform 0.5s, background-color 1s, box-shadow 0.5s;
     position: relative;
     top: 0;
 }
 button:last-child {
     border-left: thick dashed #000;
+}
+button:hover {
+    background-color: #f5c45c55;
 }
 button:disabled {
     transform: rotate(10deg);
