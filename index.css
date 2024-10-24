@@ -10,10 +10,6 @@
     transition: height 2s;
 }
 
-body {
-    margin: 0;
-}
-
 main {
     display: flex;
     flex-direction: row;
@@ -31,7 +27,11 @@ a:visited::selection {
 }
 
 body {
+    margin: 0;
+    display: flex;
     background-color: #eee8d5;
+    width: 100vw;
+    height: 100vh;
 }
 
 section *, nav * {
@@ -40,61 +40,78 @@ section *, nav * {
 
 section {
     width: fit-content;
-    height: fit-content;
     display: flex;
-    height: 90vh;
+    height: 100%;
     background-color: #fdf6e3;
     margin-right: 0;
-    padding: 25pt;
+    box-shadow: 4px 5px 4px 0px #c95a0055;
 }
 h1 {
     transform: rotate(180deg);
     height: 100%;
     writing-mode: vertical-rl;
     text-align: center;
+    margin: 25pt;
 }
 
 nav {
     width: 100%;
+    height: 100%;
+    border-left: thick dashed #000;
 }
 
-ul {
+#links {
     display: block;
     padding: 0;
     margin: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    height: 93.34%;
 }
 
 li::marker {
     content: "⭑";
 }
-li {
+li, button {
+    width: auto;
     display: block;
-    transition: transform 0.5s;
+    /* transition: transform 0.5s; */
     transform: rotate(0deg);
     transform-origin: left;
     margin: 0;
     padding: 1em;
+    height: fit-content;
     background-color: #fdf6e3;
-    border-left-style: dashed;
-    border-left: thick dashed #c95a00;
-}
-li:nth-child(3n+1) {
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-li:nth-child(3n+2) {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-}
-li:nth-child(3n) {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 3;
+    box-shadow: 4px 5px 4px 0px #c95a0055;
+    border-bottom: dotted #c95a00;
 }
 li:hover {
     /* transform: rotate(-0.75deg); */
     color: #c95a00;
+}
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: 6.66%;
+}
+
+button {
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    border: none;
+    transition: top 2s cubic-bezier(1,-1.07,0,1.63), transform 0.5s, background-color 1s;
+    position: relative;
+    top: 0;
+}
+button:first-child {
+    border-right: thick dashed #000;
+}
+button:disabled {
+    transform: rotate(10deg);
+    background-color: #986800;
+    box-shadow: none;
+    position: relative;
+    top: 100px;
 }
