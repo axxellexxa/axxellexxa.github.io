@@ -10,6 +10,10 @@
     transition: height 2s;
 }
 
+body {
+    overflow: hidden;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -82,10 +86,23 @@ li, button {
     background-color: #fdf6e3;
     box-shadow: 4px 5px 4px 0px #c95a0055;
     border-bottom: dotted #c95a00;
+    cursor: pointer;
 }
-li:hover {
-    /* transform: rotate(-0.75deg); */
-    color: #c95a00;
+li {
+    top: 0;
+    left: 0;
+    transition: top 2s cubic-bezier(1,-0.31,.63,1.19), transform 0.5s, background-color 1s, left 0.5s;
+}
+li.clicked {
+    background-color: #986800;
+    box-shadow: none;
+    position: relative;
+    top: 100vh;
+    left: 20px;
+}
+
+a {
+    pointer-events: none;
 }
 
 .settings {
@@ -105,8 +122,8 @@ button {
     position: relative;
     top: 0;
 }
-button:first-child {
-    border-right: thick dashed #000;
+button:last-child {
+    border-left: thick dashed #000;
 }
 button:disabled {
     transform: rotate(10deg);
@@ -114,4 +131,10 @@ button:disabled {
     box-shadow: none;
     position: relative;
     top: 100px;
+}
+button:active {
+    transform: rotate(5deg);
+}
+button:focus-visible {
+    background-color: #f5c45c;
 }
