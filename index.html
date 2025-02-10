@@ -4,16 +4,32 @@
 	<title>Vaughn Alvarez | Websites</title>
 	<link rel="stylesheet" href="index.css">
 </head>
-<body>
-	<section>
-		<h1>axxellexxa.github.io</h1>
-	</section>
-	<nav>
-		<ul>
-			<li><a download href="chemystri/index.html">empty website for research project prototype purposes</a></li>
-			<li><a href="gameoflife/index.html">My attempts at making John Conway's Game of Life on a website</a></li>
-			<li><a href="MidnightsVinyls/index.html">A vinyl store page</a></li>
-		</ul>
-	</nav>
+<body >
+	<main>
+		<section>
+			<h1>axxellexxa.github.io</h1>
+		</section>
+		<nav>
+			<ul id="links">
+				<li class="link"><a href="chemystri/index.html">empty website for research project prototype purposes</a></li>
+				<li class="link"><a href="gameoflife/index.html">My attempts at making John Conway's Game of Life on a website</a></li>
+				<li class="link"><a href="MidnightsVinyls/index.html">A vinyl store page</a></li>
+			</ul>
+			<ul class="settings">
+				<button onclick="toggleRotation()" id="toggle">toggle rotation</button>
+				<button onclick="resetRotation()" id="reset">reset</button>
+			</ul>
+		</nav>
+	</main>
+	<script src="index.js"></script>
 </body>
 </html>
+
+<!--
+TO DO
+✅ add an active state to the links when they are pressed
+- remove anchor default behavior
+✅ center header
+- add info under main section
+✅ add hover state to buttons, links
+-->
